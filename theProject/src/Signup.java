@@ -16,6 +16,6 @@ public class Signup {
     }
 
     public boolean checkIfValid(){
-        return username != null && password != null;
+        return username != null && password != null; //May want additional test cases
     }
 }
