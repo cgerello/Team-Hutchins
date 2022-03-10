@@ -6,10 +6,22 @@ public class CourseList {
     /**
      * Place holder for the course class
      */
-    public class course{
+    public class course {
         String code = "TEST 123A";
         String time = "9-9:50";
         //place holder
+
+    }
+
+    public static void removeClass(course course, ArrayList<course> Schedule){
+        if (checkDouble(course, Schedule)) {
+            Schedule.remove(course);
+            System.out.println("Course removed.");
+        }
+
+        else {
+            System.out.println("Course not in schedule, cannot be removed.");
+        }
     }
 
     /**
@@ -77,5 +89,8 @@ public class CourseList {
         }
         return check;
     }
+
+
+
 }
 
