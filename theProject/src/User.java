@@ -1,9 +1,9 @@
 public class User {
-    //ArrayList<course> schedule;   //not sure how this can exist here, but it's in the plan
+    //ArrayList<course> schedule;   //change later
     String username;
     String password;
     String name;
-    String major;
+    String major;   //I think he made some comment about the amt of info, so I made these optional
     int gradYear;
 
     public User(String username, String password, String name){
@@ -11,5 +11,7 @@ public class User {
         this.username = username;
         this.password = password;
         this.name = name;
+        major = "NO_MAJOR";
+        gradYear = -1;
     }
 }

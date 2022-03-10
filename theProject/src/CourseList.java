@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Stack;
 
 
 public class CourseList {
+    Stack<course> courseHist = new Stack<>();
+    Stack<String> commandHist = new Stack<>();
     /**
      * Place holder for the course class
      */
@@ -12,6 +15,15 @@ public class CourseList {
         //place holder
 
     }
+
+    public void undo(){
+        String lastCommand = commandHist.pop();
+        course lastCourse = courseHist.pop();
+
+        //do opposite of last command to applicable course
+
+    }
+
 
     public static void removeClass(course course, ArrayList<course> Schedule){
         if (checkDouble(course, Schedule)) {
