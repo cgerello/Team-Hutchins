@@ -6,6 +6,10 @@ import java.util.Stack;
 public class CourseList {
     Stack<course> courseHist = new Stack<>();
     Stack<String> commandHist = new Stack<>();
+
+    Stack<course> undoCourseHist = new Stack<>();
+    Stack<String> undoCommandHist = new Stack<>();
+
     /**
      * Place holder for the course class
      */
@@ -16,14 +20,52 @@ public class CourseList {
 
     }
 
-    public void undo(){
-        String lastCommand = commandHist.pop();
-        course lastCourse = courseHist.pop();
-
-        //do opposite of last command to applicable course
-
+    public void updateHistory(String command, course course){
+        commandHist.push(command);
+        courseHist.push(course);
     }
 
+
+    public void undo(ArrayList<course> schedule){
+        if (!undoCommandHist.isEmpty() && !undoCourseHist.isEmpty()) {
+            String lastCommand = commandHist.pop();
+            course lastCourse = courseHist.pop();
+
+            //do opposite of last command to applicable course
+            if (lastCommand.equals("add")) {
+                schedule.remove(lastCourse);
+            }
+
+            else if (lastCommand.equals("remove")) {
+                schedule.add(lastCourse);
+            }
+
+            undoCommandHist.push(lastCommand);
+            undoCourseHist.push(lastCourse);
+        }
+        else {
+            System.out.println("No actions to undo.");
+        }
+    }
+
+    public void redo(ArrayList<course> schedule) {
+
+        if (!undoCommandHist.isEmpty() && !undoCourseHist.isEmpty()){
+            String lastCommand = undoCommandHist.pop();
+            course lastCourse = undoCourseHist.pop();
+
+            if (lastCommand.equals("add")) {
+                schedule.add(lastCourse);
+            }
+            else if (lastCommand.equals("remove")) {
+                schedule.remove(lastCourse);
+            }
+        }
+
+        else {
+            System.out.println("No actions to redo.");
+        }
+    }
 
     public static void removeClass(course course, ArrayList<course> Schedule){
         if (checkDouble(course, Schedule)) {
