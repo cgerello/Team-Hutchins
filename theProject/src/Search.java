@@ -15,13 +15,12 @@ public class Search {
             Scanner classScan = new Scanner(classFile);
             String data = "";
             while (classScan.hasNextLine()) {
-                data = classScan.nextLine();
-                Scanner dataScan = new Scanner(data);
+                data = classScan.nextLine(); //grabs the line of code (the course info)
+                Scanner dataScan = new Scanner(data); //Creates a new scanner to read the line
                 dataScan.useDelimiter(",");
                 while (dataScan.hasNext()){
-                    String theString = dataScan.next();
                     System.out.println(dataScan.next());
-                    if (theString.equalsIgnoreCase(searchInput)){
+                    if (dataScan.next().equalsIgnoreCase(searchInput)){
                         System.out.println("Match found for: " + searchInput);
                     }
                 }
