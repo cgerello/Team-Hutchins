@@ -91,7 +91,7 @@ public class Search {
     }
 
     public void addFilter(){ //Work on this
-
+        System.out.println("test");
     }
 
     public static void main(String[] args){ //Temporary main for testing
