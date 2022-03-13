@@ -2,6 +2,15 @@ import java.util.Scanner;
 
 public class Main {
 
+    static void printCommands(){
+        String[] commands = {"add", "remove", "undo", "redo", "list", "quit"};
+        System.out.println("- Valid commands:");
+        for(String s : commands){
+            System.out.println("\t" + s);
+        }
+    }
+
+
     static void printScreen(){
         System.out.println("___________________________________________________");
         System.out.println("Team Hutchins\t\t\tCLASS SCHEDULING ASSISTANT");
@@ -23,17 +32,49 @@ public class Main {
         while (!command.equals("quit")){
             if(command.equals("login")){
                 //TODO
-                System.out.println("TODO: login");
-                break;
+                System.out.println("- TODO: login");
             }
            else if(command.equals("sign up")){
                 //TODO
-                System.out.println("TODO: sign up");
-                break;
+                System.out.println("- TODO: sign up");
             }
-           //etc
+
+           else if(command.equals("add")){
+                //TODO
+                System.out.println("- TODO: add");
+            }
+
+            else if(command.equals("remove")){
+                //TODO
+                System.out.println("- TODO: remove");
+            }
+
+            else if(command.equals("undo")){
+                //TODO
+                System.out.println("- TODO: undo");
+            }
+
+            else if(command.equals("redo")){
+                //TODO
+                System.out.println("- TODO: redo");
+            }
+
+            else if(command.equals("list")){
+                printCommands();
+            }
+            //etc
+
+           else {
+                System.out.println("- Command not recognized.");
+            }
+
 
             printScreen();
+
+           //if user is signed in...
+            System.out.println("- Type what you'd like to do:");
+            System.out.println("  (or 'list' for valid commands)\n");
+            command = mainScn.nextLine();
             System.out.println("___________________________________________________\n");
         };
 
