@@ -20,8 +20,23 @@ public class Search {
      * Takes in the results of the search and orginzes it to be prepared for the user to see
      * @param searchResults from the getResults method
      */
-    public static void orderSearch(ArrayList<Course> searchResults){
-        ArrayList<Course> ordered;
+    public static ArrayList<Course> orderSearch(ArrayList<Course> searchResults){
+        ArrayList<Course> ordered = searchResults;
+        Collections.sort(ordered, new Comparator<Course>() {
+            @Override
+            public int compare(Course c1, Course c2) {
+                String time1 = ((Course) c1).time; //getters could be used here
+                String time2 = ((Course) c2).time;
+                int time_compare = time1.compareTo(time2);
+                if (time_compare != 0) {
+                    return time_compare;
+                }
+                String day1 = ((Course) c1).day; //getters code be used here
+                String day2 = ((Course) c2).day;
+                return day1.compareTo(day2);
+            }
+        });
+        return ordered;
     }
 
     /**
