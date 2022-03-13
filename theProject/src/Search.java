@@ -7,15 +7,33 @@ public class Search {
     public class Course{
         String day;
         String time;
+        String courseName;
+        String code;
     }
 
     public Search(String searchInput){
         this.searchInput = searchInput;
         //getResults();
     }
+
+    /**
+     * Takes in the results of the search and orginzes it to be prepared for the user to see
+     * @param searchResults from the getResults method
+     */
     public static void orderSearch(ArrayList<Course> searchResults){
         ArrayList<Course> ordered;
+    }
 
+    /**
+     * Prints the ordered lists from the search results for the user to view and choose what to add.
+     * @param orderList takes in and ordered list from the search results given to the orderList()
+     */
+    public static void printResults(ArrayList<Course> orderList){
+        for(int i = 0; i < orderList.size(); i++){
+            String course = "";
+            course = orderList.get(i).day + " " + orderList.get(i).time + " " + orderList.get(i).code + " " + orderList.get(i).courseName;
+            System.out.println(course);
+        }
 
     }
     public static void getResults(String searchInputWithSpace){ //Get rid of static afterwards and return string, get rid of parameter
