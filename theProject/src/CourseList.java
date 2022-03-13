@@ -16,6 +16,7 @@ public class CourseList {
     public class course {
         String code = "TEST 123A";
         String time = "9-9:50";
+        String day = "MWF";
         //place holder
 
     }
@@ -137,7 +138,7 @@ public class CourseList {
     public static boolean checkConfliction(course C, ArrayList<course> S){
         boolean check = false;
         for(int i = 0; i < S.size(); i++){
-            if(S.get(i).time.equals(C.time)){
+            if(S.get(i).time.equals(C.time) && S.get(i).day.equals(C.day)){
                 check = true;
             }
         }
