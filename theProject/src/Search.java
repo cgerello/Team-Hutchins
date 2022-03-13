@@ -3,12 +3,21 @@ import java.io.*;
 
 public class Search {
     static String searchInput; //Change from static later
+    //Temp course for writing a method
+    public class Course{
+        String day;
+        String time;
+    }
 
     public Search(String searchInput){
         this.searchInput = searchInput;
         //getResults();
     }
+    public static void orderSearch(ArrayList<Course> searchResults){
+        ArrayList<Course> ordered;
 
+
+    }
     public static void getResults(String searchInputWithSpace){ //Get rid of static afterwards and return string, get rid of parameter
         try {
             File classFile = new File("theProject/src/classFile.txt");
